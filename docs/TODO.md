@@ -1,8 +1,7 @@
 # MECH_GOD TODO TASKLIST - RICH CLI VISUAL CONSISTENCY OVERHAUL
 
-## MECH_GOD INITIALIZATION
-
-```mech
+```mecha
+# MECH_GOD INITIALIZATION
 {0}:meta:
   [version]: "1.0.0"
   [extension]: ".mech"
@@ -36,13 +35,9 @@
     [d]:basic table layouts
     [e]:limited progress indicators
     [f]:no visual hierarchy consistency
-```
 
-## WEIGHT-BALANCED TASK PLAN
-
-### MIML (Minimal) Tasks - Negative Weight (--)
-
-```mech
+# WEIGHT-BALANCED TASK PLAN
+# MIML (Minimal) Tasks - Negative Weight (--)
 {3}:minimal_tasks:
   [a]:--:unified_border_system:
     [i]: "Standardize all Panel borders to single style"
@@ -69,11 +64,8 @@
     [ii]: "Reduce visual noise in menus"
     [iii]: "Streamline information hierarchy"
     [weight]: -4
-```
 
-### FEAT (Feature) Tasks - Positive Weight (++)
-
-```mech
+# FEAT (Feature) Tasks - Positive Weight (++)
 {4}:feature_tasks:
   [a]:++:advanced_progress_system:
     [i]: "Implement Rich Progress with multiple columns"
@@ -117,11 +109,8 @@
     [iv]: "Add configuration validation"
     [v]: "Implement auto-save for user preferences"
     [weight]: +5
-```
 
-## IMPLEMENTATION TALLY
-
-```mech
+# IMPLEMENTATION TALLY
 {5}:tally_calculation:
   [minimal_weight]: -14
   [feature_weight]: +29
