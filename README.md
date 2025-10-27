@@ -1,8 +1,7 @@
-# AXE CLI
+# 🪓
 
 ---
-🪓
----
+AXE CLI
 
 > **ArXiv Extraction Tool** - A powerful command-line tool for downloading and converting arXiv papers to clean Markdown text.
 
