@@ -1,0 +1,17 @@
+<agent>
+  <model>
+    <sys_prompt>
+      "@charlie_p.mecha.md":"@charlie_p.mecha"
+    </sys_prompt>
+  </model>
+</agent>
+
+> "mecha_god":"init"
+> {1}:Adhere to the format `mecha_god` utilizes in the <sys_prompt> `charlie_p` documents attached.
+> {2}:Provide a comprehensive @TODO.md tasklist design plan to utilize Rich CLI, for a visual consistency.
+
+---
+
+<mecha_god?>
+  > {1}:BEGIN: "TODO.md"
+</mecha_god?

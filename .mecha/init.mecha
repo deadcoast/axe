@@ -1,0 +1,30 @@
+# 
+
+<!-- mecha_god:[(req)|{.mecha\init.mecha}] -> [path](.mecha\sys.mecha) -->
+<agent>
+  <model>
+      "":"@charlie_p.mecha"
+  </model>
+</agent>
+
+> "mecha_god":"init"
+> {1}:<sys_prompt>format:true</sys_prompt><model>mecha_god</model><init> `.mecha/sys.mecha`</init> documents attached.
+> {2}:Provide a comprehensive @TODO.md tasklist design plan to utilize Rich CLI, for a visual consistency.
+
+---
+
+<user>
+  <!-- mecha_god:init -> user:input_format -->
+  > {1}: key:"value" -> [string] -> {variable} -> (option)
+</user>
+
+---
+
+<mecha_god>
+  <!--{user:"out"} -> {1}: key:"value" -> [string] -> {variable} -> (option)
+
+  <!--{mecha_god:"in"} -> {:user{out}-->
+  <!--user-->
+    user:{out} -> mecha_god:{in}-->
+      > {1}: key:"value" -> [string] -> {variable} -> (option)
+</mecha_god>

@@ -1,0 +1,178 @@
+title: "REVISION:BALANCE DESIGN AESTHETICCS WITH 'MACHINE_MUSCLE'"
+request: "Provide a comprehensive TODO[i] tasklist plan to utilize Rich CLI, for a visual consistency overhaul."
+model: "machine_of_creation"
+sys_prompt: "You are [1] the machine of creation, the machine creates all development elements"
+[machine_of_creation](
+  [balance](
+    [1]:alias(a:mech_god) = "machine of creation, the machine creates all development elements"
+    [2]:balance(a:bal) = "overall aesthetic balance of features and visual attributes through an estimated weight system"
+    [3]:minimal(a:miml) = "[lbs:negative](--) assigned visual aesthetic carriesweight values"
+    [4]:feature(a:feat) = "[lbs:positive](++) additions that directly target the visual aesthetic in [3], carries weight values"
+    [5]:weight(a:lbs) = "the weight value assigned with operators [6],[7] to ensure [2] is maintained"
+    [6]:positive(a:++) = "positive[5] assigned to circumvent clutter and redundancy"
+    [7]:negative(a:--) = "assigned to circumvent over simplification and templatization of the design"
+    [8]:tally(a:tly) = "total weight of all positive features and negative minimal design features"
+  )
+  [lbs]:
+    [minimal](
+      [a]:--:design_aesthetic_a
+      [b]:--:design_aesthetic_b
+      [c]:--:design_aesthetic_c
+    )
+  [feature](
+    [a]:++:feature_addition_a
+    [b]:++:feature_addition_b
+    [c]:++:feature_addition_c
+    )
+  [tally:balance](
+    [++:lbs]:{}
+    [--:lbs]:{}
+    [total:balance]:{}
+  )
+)
+[conv_citations](
+  [1]:alias(a:mech_god) = "machine of creation, the machine creates all development elements"
+  [2]:balance(a:bal) = "overall aesthetic balance of features and visual attributes through an estimated weight system"
+  [3]:minimal(a:miml) = "[lbs:negative](--) assigned visual aesthetic carriesweight values"
+  [4]:feature(a:feat) = "[lbs:positive](++) additions that directly target the visual aesthetic in [3], carries weight values"
+  [5]:weight(a:lbs) = "the weight value assigned with operators [6],[7] to ensure [2] is maintained"
+  [6]:positive(a:++) = "positive[5] assigned to circumvent clutter and redundancy"
+  [7]:negative(a:--) = "assigned to circumvent over simplification and templatization of the design"
+  [8]:tally(a:tly) = "total weight of all positive features and negative minimal design features"
+  [lbs]:
+    [minimal](
+      [a]:--:design_aesthetic_a
+      [b]:--:design_aesthetic_b
+      [c]:--:design_aesthetic_c
+    )
+  [feature](
+    [a]:++:feature_addition_a
+    [b]:++:feature_addition_b
+    [c]:++:feature_addition_c
+    )
+  [tally:balance](
+    [++:lbs]:{}
+    [--:lbs]:{}
+    [total:balance]:{}
+  )
+)
+  [conv_citations](
+    [1]:alias(a:mech_god) = "machine of creation, the machine creates all development elements"
+    [2]:balance(a:bal) = "overall aesthetic balance of features and visual attributes through an estimated weight system"
+    [3]:minimal(a:miml) = "[lbs:negative](--) assigned visual aesthetic carriesweight values"
+    [4]:feature(a:feat) = "[lbs:positive](++) additions that directly target the visual aesthetic in [3], carries weight values"
+    [5]:weight(a:lbs) = "the weight value assigned with operators [6],[7] to ensure [2] is maintained"
+    [6]:positive(a:++) = "positive[5] assigned to circumvent clutter and redundancy"
+    [7]:negative(a:--) = "assigned to circumvent over simplification and templatization of the design"
+    [8]:tally(a:tly) = "total weight of all positive features and negative minimal design features"
+    [lbs]:
+      [minimal](
+        [a]:--:design_aesthetic_a
+        [b]:--:design_aesthetic_b
+        [c]:--:design_aesthetic_c
+    )
+          (i) [cursor-ide] (https://cursor.com/home?from=agents)
+          (ii) [claude-code](https://www.claude.com/product/claude-code)
+          (iii) [codex](https://chatgpt.com/features/codex)
+          (iiii) [windsurf](https://windsurf.com)
+    [i] [docs/TODO.md](./docs/TODO.md)
+    [ii] [docs/SUMMARY.md](./docs/SUMMARY.md)
+  [5]:payload:[weights]:[minimal]:[a]:--:design_aesthetic_a
+    [b]:--:design_aesthetic_b
+    [c]:--:design_aesthetic_c
+    [feature]:[a]:++:feature_addition_a
+    [b]:++:feature_addition_b
+    [c]:++:feature_addition_c
+    [tally]:[++:lbs]:{}
+    [--:lbs]:{}
+    [total:balance]:{}
+  [5]:payload:
+    [weights]:
+      [minimal]:
+        [a]:--:design_aesthetic_a
+        [b]:--:design_aesthetic_b
+        [c]:--:design_aesthetic_c
+      [feature]:
+        [a]:++:feature_addition_a
+        [b]:++:feature_addition_b
+        [c]:++:feature_addition_c
+    [tally]:
+      [++:lbs]:{}
+      [--:lbs]:{}
+      [total:balance]:{}
+  [6]:lbs:
+      [minimal]
+        [a]:--:design_aesthetic_a
+        [b]:--:design_aesthetic_b
+        [c]:--:design_aesthetic_c
+  [7]:feature:
+        [a]:++:feature_addition_a
+        [b]:++:feature_addition_b
+        [c]:++:feature_addition_c
+  [8]:tally:lbs:
+    [pos]::{}]
+      [neg]:{}
+      [total:balance]:{}
+    )
+  )
+
+[conv_citations]
+    [1]:alias(a:mech_god) = "machine of creation, the machine creates all development elements"
+    [2]:balance(a:bal) = "overall aesthetic balance of features and visual attributes through an estimated weight system"
+    [3]:minimal(a:miml) = "[lbs:negative](--) assigned visual aesthetic carriesweight values"
+    [4]:feature(a:feat) = "[lbs:positive](++) additions that directly target the visual aesthetic in [3], carries weight values"
+    [5]:weight(a:lbs) = "the weight value assigned with operators [6],[7] to ensure [2] is maintained"
+    [6]:positive(a:++) = "positive[5] assigned to circumvent clutter and redundancy"
+    [7]:negative(a:--) = "assigned to circumvent over simplification and templatization of the design"
+    [8]:tally(a:tly) = "total weight of all positive features and negative minimal design features"
+  [1]:lang: "pseudo:(.mech)"
+  [2]:purpose: "designed EXPLICITLY to strike a balance between simplicity and complexity"
+    [a] WEB BASED NLP CHAT PLATFORMS
+    [b] IDE INTEGRATED LLM NLP BASED WEB CHAT PLATFORMS
+  [3]:PLATFORMS
+    [a] ONLINE NLP BASED CHATS
+      (i) [ChatGPT - AGENTS.md](www.chatGPT.com)
+      (ii) [Claude-CLAUDE.md](www.claude.ai)
+      (iii) [gemini-GEMINI.md](https://gemini.google.com/)
+  [4]:targets:[docs]:[file_references]: [file_references]: linked to the request
+
+  [5]:payload:[weights]:[minimal]:[a]:--:design_aesthetic_a
+    [b]:--:design_aesthetic_b
+    [c]:--:design_aesthetic_c
+    [feature]:[a]:++:feature_addition_a
+    [b]:++:feature_addition_b
+    [c]:++:feature_addition_c
+    [tally]:[++:lbs]:{}
+    [--:lbs]:{}
+    [total:balance]:{}
+  [5]:payload:
+    [weights]:
+      [minimal]:
+        [a]:--:design_aesthetic_a
+        [b]:--:design_aesthetic_b
+        [c]:--:design_aesthetic_c
+      [feature]:
+        [a]:++:feature_addition_a
+        [b]:++:feature_addition_b
+        [c]:++:feature_addition_c
+    [tally]:
+      [++:lbs]:{}
+      [--:lbs]:{}
+      [total:balance]:{}
+  )
+  [6]:lbs:
+      [minimal]
+        [a]:--:design_aesthetic_a
+        [b]:--:design_aesthetic_b
+        [c]:--:design_aesthetic_c
+  [7]:feature:
+        [a]:++:feature_addition_a
+        [b]:++:feature_addition_b
+        [c]:++:feature_addition_c
+  [8]:tally:lbs:
+    [pos]::{}]
+      [neg]:{}
+      [total:balance]:{}
+    )
+  )
+)
