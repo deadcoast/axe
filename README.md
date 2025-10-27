@@ -16,19 +16,16 @@ tags:
   - text
   - pdf
 # Use 'keywords' for SEO; can be more descriptive phrases.
-keywords: "arXiv, CLI, tool, conversion, markdown, text, pdf, arXiv API, command-line tool, PDF to text, academic paper converter"
+keywords: "arXiv, CLI, tool, conversion, markdown, text, PDF"
 # 'Category' is usually for broader classification. Often just one is used.
-category: "Software Tools"
+category: "Conversion Tools"
 ---
-# AXE CLI - ArXiv Extraction Tool
+
+**🪓**
+
+---
 
 _Powerful, interactive command-line tool for downloading and converting arXiv papers to text and markdown formats._
-
----
-
-**🪓**CLI
-
----
 
 ## Features
 
