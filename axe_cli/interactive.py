@@ -12,8 +12,7 @@ from rich.table import Table
 from rich.text import Text
 
 from .converter import ArxivConverter
-
-console = Console()
+from .ui_constants import console, get_panel_style, get_text_style, get_border_style, TABLE_STYLES, get_styled_title
 
 
 class InteractiveMenu:
@@ -60,16 +59,15 @@ class InteractiveMenu:
         console.print()
         console.print(Panel.fit(
             banner,
-            border_style="cyan",
-            padding=(1, 2)
+            **get_panel_style('secondary')
         ))
         console.print()
     
     def _show_menu(self):
         """Display main menu"""
-        table = Table(show_header=False, box=None, padding=(0, 2))
-        table.add_column("Option", style="cyan bold", width=8)
-        table.add_column("Description", style="white")
+        table = Table(**TABLE_STYLES['compact'])
+        table.add_column("Option", style=get_text_style('title'), width=8)
+        table.add_column("Description", style=get_text_style('body'))
         
         table.add_row("1", "Chop files (convert arXiv papers)")
         table.add_row("2", "Configure paths")
@@ -80,8 +78,8 @@ class InteractiveMenu:
         console.print()
         console.print(Panel.fit(
             table,
-            title="[bold]Main Menu[/bold]",
-            border_style="blue"
+            title=get_styled_title("Main Menu", "primary"),
+            **get_panel_style('primary')
         ))
         console.print()
     
@@ -92,7 +90,7 @@ class InteractiveMenu:
             User's choice as string
         """
         return Prompt.ask(
-            "[bold cyan]Choose an option[/bold cyan]",
+            f"[{get_text_style('title')}]Choose an option[/{get_text_style('title')}]",
             choices=["1", "2", "3", "4", "5"],
             default="1"
         )
@@ -124,7 +122,8 @@ class InteractiveMenu:
             "[cyan]3.[/cyan] Process specific file/directory\n"
             "[cyan]4.[/cyan] Process arXiv URL\n"
             "[cyan]5.[/cyan] Back to main menu",
-            border_style="green"
+            title=get_styled_title("Chop Operation", "success"),
+            **get_panel_style('success')
         ))
         console.print()
         
@@ -205,7 +204,8 @@ class InteractiveMenu:
             "[cyan]3.[/cyan] View current paths\n"
             "[cyan]4.[/cyan] Reset to defaults\n"
             "[cyan]5.[/cyan] Back to main menu",
-            border_style="yellow"
+            title=get_styled_title("Path Configuration", "warning"),
+            **get_panel_style('warning')
         ))
         console.print()
         
@@ -246,8 +246,8 @@ class InteractiveMenu:
             console.print(Panel.fit(
                 f"[bold cyan]Input Path:[/bold cyan]\n{current_in}\n\n"
                 f"[bold green]Output Path:[/bold green]\n{current_out}",
-                title="[bold]Current Paths[/bold]",
-                border_style="blue"
+                title=get_styled_title("Current Paths", "primary"),
+                **get_panel_style('primary')
             ))
         
         elif choice == "4":
@@ -264,7 +264,8 @@ class InteractiveMenu:
             "[cyan]1.[/cyan] View persistent statistics\n"
             "[cyan]2.[/cyan] Reset statistics\n"
             "[cyan]3.[/cyan] Back to main menu",
-            border_style="magenta"
+            title=get_styled_title("Statistics", "info"),
+            **get_panel_style('info')
         ))
         console.print()
         
@@ -307,8 +308,8 @@ class InteractiveMenu:
             "  • Markdown (.md)\n"
             "  • Both formats\n\n"
             "Press Enter to continue...",
-            border_style="blue",
-            padding=(1, 2)
+            title=get_styled_title("Help & Documentation", "primary"),
+            **get_panel_style('primary')
         ))
         
         input()
@@ -319,6 +320,7 @@ class InteractiveMenu:
         console.print(Panel.fit(
             "[bold green]Thank you for using AXE CLI![/bold green]\n"
             "Your configuration and statistics have been saved.",
-            border_style="green"
+            title=get_styled_title("Goodbye", "success"),
+            **get_panel_style('success')
         ))
         console.print()

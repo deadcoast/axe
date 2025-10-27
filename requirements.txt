@@ -2,3 +2,5 @@ arxiv>=2.0.0
 arxiv2text>=0.1.0
 click>=8.0.0
 rich>=13.0.0
+pygments>=2.15.0
+markdown>=3.4.0

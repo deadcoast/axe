@@ -10,7 +10,7 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 
-console = Console()
+from .ui_constants import console, get_panel_style, get_text_style, TABLE_STYLES, get_styled_title
 
 
 class StatsManager:
@@ -102,10 +102,10 @@ class StatsManager:
         duration = datetime.now() - start_time
         duration_str = f"{duration.total_seconds():.2f}s"
         
-        # Create table
-        table = Table(title="Run Statistics", show_header=True, header_style="bold cyan")
-        table.add_column("Metric", style="cyan", width=20)
-        table.add_column("Count", justify="right", style="green")
+        # Create table with unified styling
+        table = Table(**TABLE_STYLES['primary'])
+        table.add_column("Metric", style=get_text_style('title'), width=20)
+        table.add_column("Count", justify="right", style=get_text_style('success'))
         
         table.add_row("Successful", str(self.run_stats['success']))
         table.add_row("Failed", str(self.run_stats['failed']))
@@ -114,7 +114,11 @@ class StatsManager:
         table.add_row("Duration", duration_str)
         
         console.print()
-        console.print(table)
+        console.print(Panel.fit(
+            table,
+            title=get_styled_title("Run Statistics", "success"),
+            **get_panel_style('success')
+        ))
         console.print()
     
     def show_persistent_stats(self):
@@ -146,10 +150,10 @@ class StatsManager:
             except ValueError:
                 pass
         
-        # Create table
-        table = Table(title="Persistent Statistics", show_header=True, header_style="bold magenta")
-        table.add_column("Metric", style="cyan", width=25)
-        table.add_column("Value", justify="right", style="green")
+        # Create table with unified styling
+        table = Table(**TABLE_STYLES['primary'])
+        table.add_column("Metric", style=get_text_style('title'), width=25)
+        table.add_column("Value", justify="right", style=get_text_style('success'))
         
         table.add_row("Total Runs", str(self.persistent_stats['total_runs']))
         table.add_row("Total Successful", str(self.persistent_stats['total_success']))
@@ -161,7 +165,11 @@ class StatsManager:
         table.add_row("Last Run", last_run)
         
         console.print()
-        console.print(table)
+        console.print(Panel.fit(
+            table,
+            title=get_styled_title("Persistent Statistics", "info"),
+            **get_panel_style('info')
+        ))
         console.print()
     
     def get_run_stats(self) -> dict:

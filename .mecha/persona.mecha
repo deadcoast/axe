@@ -1,3 +1,4 @@
+#!mecha.god:init:
 {0}:meta:
   [file]: "persona.mecha"
   [full_spec]: ".god.mecha"

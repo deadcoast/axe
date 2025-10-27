@@ -15,8 +15,7 @@ from .config import Config
 from .converter import ArxivConverter
 from .stats import StatsManager
 from .interactive import InteractiveMenu
-
-console = Console()
+from .ui_constants import console, get_panel_style, get_text_style, get_border_style, get_styled_title
 config = Config()
 stats_manager = StatsManager()
 
@@ -49,8 +48,8 @@ def path(input_path, output_path, show):
         console.print(Panel.fit(
             f"[bold cyan]Input Path:[/bold cyan] {current_in}\n"
             f"[bold green]Output Path:[/bold green] {current_out}",
-            title="[bold]Path Configuration[/bold]",
-            border_style="blue"
+            title=get_styled_title("Path Configuration", "primary"),
+            **get_panel_style('primary')
         ))
         return
     
@@ -125,8 +124,8 @@ def chop(target, format, output_dir):
         f"[bold cyan]Input:[/bold cyan] {input_path}\n"
         f"[bold green]Output:[/bold green] {output_path}\n"
         f"[bold yellow]Format:[/bold yellow] {format}",
-        title="[bold]AXE CHOP Operation[/bold]",
-        border_style="cyan"
+        title=get_styled_title("AXE CHOP Operation", "secondary"),
+        **get_panel_style('secondary')
     ))
     console.print()
     
@@ -199,8 +198,8 @@ def help(command):
             "  [yellow]axe path --in ~/papers[/yellow] Set input directory\n"
             "  [yellow]axe stats --show[/yellow]       Show statistics\n\n"
             "Use [cyan]axe <command> --help[/cyan] for command-specific help",
-            title="[bold]AXE CLI Help[/bold]",
-            border_style="blue"
+            title=get_styled_title("AXE CLI Help", "primary"),
+            **get_panel_style('primary')
         ))
     else:
         # Show help for specific command
@@ -209,8 +208,8 @@ def help(command):
         if cmd:
             console.print(Panel.fit(
                 cmd.get_help(ctx),
-                title=f"[bold]Help: {command}[/bold]",
-                border_style="blue"
+                title=get_styled_title(f"Help: {command}", "primary"),
+                **get_panel_style('primary')
             ))
         else:
             console.print(f"[bold red]Error:[/bold red] Unknown command: {command}")

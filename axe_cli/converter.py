@@ -12,7 +12,8 @@ from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeElapsedColumn
 from rich.panel import Panel
 
-console = Console()
+from .ui_constants import console, PROGRESS_STYLES, STATUS_STYLES
+from .ui_advanced import progress_manager, visual_feedback
 
 
 class ArxivConverter:
@@ -94,22 +95,20 @@ class ArxivConverter:
         
         console.print(f"[bold]Found {len(pdf_files)} PDF file(s) to process[/bold]\n")
         
-        with Progress(
-            SpinnerColumn(),
-            TextColumn("[progress.description]{task.description}"),
-            BarColumn(),
-            TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
-            TimeElapsedColumn(),
-            console=console
-        ) as progress:
-            
-            task = progress.add_task("[cyan]Processing files...", total=len(pdf_files))
-            
-            for pdf_file in pdf_files:
-                progress.update(task, description=f"[cyan]Processing: {pdf_file.name}")
+        # Use advanced progress manager
+        progress = progress_manager.create_file_progress(len(pdf_files), "file_processing")
+        
+        with progress:
+            for i, pdf_file in enumerate(pdf_files):
+                progress_manager.update_progress(
+                    "file_processing", 
+                    description=f"[cyan]Processing: {pdf_file.name}"
+                )
                 self.process_file(pdf_file, output_dir, format)
-                progress.advance(task)
+                progress_manager.update_progress("file_processing", advance=1)
                 time.sleep(0.1)  # Brief pause to avoid rate limiting
+        
+        progress_manager.finish_progress("file_processing")
     
     def process_url(self, url: str, output_dir: Path, format: str):
         """Process an arXiv URL
@@ -153,10 +152,27 @@ class ArxivConverter:
             # Download PDF
             pdf_path = output_dir / f"{safe_title}.pdf"
             
-            with console.status(f"[bold green]Downloading {arxiv_id}..."):
-                paper.download_pdf(dirpath=str(output_dir), filename=f"{safe_title}.pdf")
+            # Use visual feedback system for download
+            download_status = visual_feedback.show_loading_status(
+                f"[bold green]Downloading {arxiv_id}...", 
+                "download", 
+                STATUS_STYLES['loading']['spinner_style']
+            )
             
-            console.print(f"[green][/green] Downloaded: {safe_title}.pdf")
+            try:
+                paper.download_pdf(dirpath=str(output_dir), filename=f"{safe_title}.pdf")
+                visual_feedback.stop_loading_status("download")
+                visual_feedback.show_success_message(
+                    f"Downloaded: {safe_title}.pdf",
+                    f"arXiv ID: {arxiv_id}"
+                )
+            except Exception as e:
+                visual_feedback.stop_loading_status("download")
+                visual_feedback.show_error_message(
+                    f"Failed to download {arxiv_id}",
+                    str(e)
+                )
+                raise
             
             # Convert to requested format(s)
             arxiv_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
@@ -191,7 +207,13 @@ class ArxivConverter:
                 conversion_url = pdf_path.as_uri()
             
             if format in ['text', 'both']:
-                with console.status(f"[bold yellow]Converting to text..."):
+                text_status = visual_feedback.show_loading_status(
+                    "[bold yellow]Converting to text...", 
+                    "text_conversion", 
+                    STATUS_STYLES['loading']['spinner_style']
+                )
+                
+                try:
                     text_content = arxiv_to_text(conversion_url, str(output_dir))
                     
                     # Save text file
@@ -199,10 +221,21 @@ class ArxivConverter:
                     with open(text_path, 'w', encoding='utf-8') as f:
                         f.write(text_content)
                     
-                    console.print(f"[green][/green] Created: {text_path.name}")
+                    visual_feedback.stop_loading_status("text_conversion")
+                    visual_feedback.show_success_message(f"Created: {text_path.name}")
+                except Exception as e:
+                    visual_feedback.stop_loading_status("text_conversion")
+                    visual_feedback.show_error_message("Text conversion failed", str(e))
+                    raise
             
             if format in ['markdown', 'both']:
-                with console.status(f"[bold yellow]Converting to markdown..."):
+                md_status = visual_feedback.show_loading_status(
+                    "[bold yellow]Converting to markdown...", 
+                    "md_conversion", 
+                    STATUS_STYLES['loading']['spinner_style']
+                )
+                
+                try:
                     md_content = arxiv_to_md(conversion_url, str(output_dir))
                     
                     # The library may save the file directly, but we'll ensure it's there
@@ -211,8 +244,13 @@ class ArxivConverter:
                         with open(md_path, 'w', encoding='utf-8') as f:
                             f.write(md_content)
                     
+                    visual_feedback.stop_loading_status("md_conversion")
                     if md_path.exists():
-                        console.print(f"[green][/green] Created: {md_path.name}")
+                        visual_feedback.show_success_message(f"Created: {md_path.name}")
+                except Exception as e:
+                    visual_feedback.stop_loading_status("md_conversion")
+                    visual_feedback.show_error_message("Markdown conversion failed", str(e))
+                    raise
             
             self.stats_manager.increment_success()
             

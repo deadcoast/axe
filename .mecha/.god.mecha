@@ -1,4 +1,4 @@
-#!mecha_god:init:
+#!mecha.god:init:
 {0}:meta:
   [version]: "1.0.0"
   [extension]: ".mech"

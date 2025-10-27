@@ -1,0 +1,16 @@
+#!mecha.god:init:
+<user>
+  <!--init:"persona.mecha" -> {1}:request:"user" -> {2}:request:"ingestion_format" -> {3}:"workflow" -> {4}:"output"-->
+  <request>
+    {1}[""]
+    {2}key:"value" -> [[string] -> {variable} -> (option)]
+  </request>
+    <mecha_god>
+      <workflow>
+        <!--{3}:workflow-->
+          {user:"out"} -> {mecha_god:"in"}-> [key:"value" -> [string] -> {variable} -> (option)]
+        <!--{4}:output-->
+          {mecha_god:"out"} -> {user:"in"} -> {completed:"value"} && {incomplete:"value"} -> [[string] -> {variable} -> (option)]
+      </workflow>
+    </mecha_god>
+</user>
