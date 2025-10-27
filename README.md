@@ -1,31 +1,31 @@
----
-title: "AXE CLI: ArXiv Extraction Tool"
-description: "A command-line tool to fetch and convert arXiv papers from PDF to clean Markdown text."
-author: "deadcoast"
-date: "2025-10-27"
-version: "0.0.1"
-license: "MIT"
-repository: "https://github.com/deadcoast/axe-cli"
-# Use 'tags' for specific, granular topics.
-tags:
-  - arXiv
-  - CLI
-  - tool
-  - conversion
-  - markdown
-  - text
-  - pdf
-# Use 'keywords' for SEO; can be more descriptive phrases.
-keywords: "arXiv, CLI, tool, conversion, markdown, text, PDF"
-# 'Category' is usually for broader classification. Often just one is used.
-category: "Conversion Tools"
----
-
-**🪓**
+# AXE CLI
 
 ---
+🪓
+---
 
-_Powerful, interactive command-line tool for downloading and converting arXiv papers to text and markdown formats._
+> **ArXiv Extraction Tool** - A powerful command-line tool for downloading and converting arXiv papers to clean Markdown text.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+A fast, interactive command-line tool for downloading and converting arXiv papers to text and markdown formats with beautiful terminal UI and comprehensive statistics tracking.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Command Reference](#command-reference)
+- [Configuration](#configuration)
+- [Statistics](#statistics)
+- [Supported Formats](#supported-formats)
+- [Examples](#examples)
+- [Troubleshooting](#troubleshooting)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -39,20 +39,48 @@ _Powerful, interactive command-line tool for downloading and converting arXiv pa
 
 ## Installation
 
+### Prerequisites
+
+- Python 3.8 or higher
+- [uv](https://github.com/astral-sh/uv) (recommended) or pip
+
 ### Quick Install
 
 ```bash
+# Clone the repository
+git clone https://github.com/deadcoast/axe-cli.git
+cd axe-cli
+
+# Install dependencies and package
 uv pip install -r requirements.txt
 uv pip install -e .
 ```
 
-### From Source
+### Alternative Installation
 
 ```bash
-git clone https://github.com/yourusername/axe-cli.git
-cd axe-cli
-uv pip install -r requirements.txt
-uv pip install -e .
+# Using pip instead of uv
+pip install -r requirements.txt
+pip install -e .
+```
+
+### Verify Installation
+
+```bash
+axe --help
+```
+
+## Quick Start
+
+```bash
+# Download and convert a paper
+axe chop https://arxiv.org/abs/2103.15538
+
+# Start interactive mode
+axe
+
+# View statistics
+axe stats --show
 ```
 
 ## Usage
@@ -260,7 +288,7 @@ Accumulated over time:
 
 View with `axe stats --show` or through the interactive menu.
 
-## Supported Input Formats
+## Supported Formats
 
 - PDF files - Direct PDF files from arXiv
 - arXiv URLs - Both abstract and PDF URLs
