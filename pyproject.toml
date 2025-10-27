@@ -17,3 +17,7 @@ axe = "axe_cli.axe_cli:main"
 [build-system]
 requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["axe_cli*"]
+exclude = ["axe_output*", "*.egg-info*", "__pycache__*"]
