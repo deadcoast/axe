@@ -1,15 +1,24 @@
 ---
-title: AXE CLI - ArXiv Extraction Tool
-description: README
-author: deadcoast
-date: 2025-10-27
-version: 0.0.1
-license: MIT
-license_text: This project is licensed under the MIT License - see the LICENSE file for details.
-repository: [github](https://github.com/deadcoast/axe-cli)
-tags: [arXiv, CLI, tool, conversion, markdown, text, pdf, arXiv API]
-categories: [arXiv, CLI, tool, conversion, markdown, text, pdf, arXiv API]
-keywords: [arXiv, CLI, tool, conversion, markdown, text, pdf, arXiv API]
+title: "AXE CLI: ArXiv Extraction Tool"
+description: "A command-line tool to fetch and convert arXiv papers from PDF to clean Markdown text."
+author: "deadcoast"
+date: "2025-10-27"
+version: "0.0.1"
+license: "MIT"
+repository: "https://github.com/deadcoast/axe-cli"
+# Use 'tags' for specific, granular topics.
+tags:
+  - arXiv
+  - CLI
+  - tool
+  - conversion
+  - markdown
+  - text
+  - pdf
+# Use 'keywords' for SEO; can be more descriptive phrases.
+keywords: "arXiv, CLI, tool, conversion, markdown, text, pdf, arXiv API, command-line tool, PDF to text, academic paper converter"
+# 'Category' is usually for broader classification. Often just one is used.
+category: "Software Tools"
 ---
 # AXE CLI - ArXiv Extraction Tool
 
@@ -19,7 +28,7 @@ _Powerful, interactive command-line tool for downloading and converting arXiv pa
 
 **🪓**CLI
 
---- 
+---
 
 ## Features
 
